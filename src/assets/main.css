@@ -1,0 +1,68 @@
+@import "base.css";
+@import "variables.css";
+
+@font-face {
+    font-family: "Lato";
+    src: url("./fonts/Lato-Regular.ttf");
+    font-weight: normal;
+    font-display: swap;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: "Lato";
+    src: url("./fonts/Lato-Bold.ttf");
+    font-weight: 700;
+    font-display: swap;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: "Movavi";
+    src: url("./fonts/Movavi Grotesque Black.ttf");
+    font-weight: 900;
+    font-display: swap;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: "Movavi";
+    src: url("./fonts/Movavi Grotesque Black Italic.ttf");
+    font-style: italic;
+    font-weight: 900;
+    font-display: swap;
+    font-display: fallback;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: "Lato", 'sans-serif';
+    height: 100%;
+}
+
+#app {
+    height: 100%;
+}
+
+.wrapper {
+    height: 100%;
+    background: var(--secondary-blue);
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: min(100% - 40px, 780px);
+    padding-inline: 0.75rem;
+    margin-inline: auto;
+    background: var(--main-gradient);
+}
+
+main {
+    flex: 1;
+}
