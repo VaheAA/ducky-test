@@ -3,6 +3,12 @@ import AppButton from '@/components/app/AppButton.vue'
 import { describe, expect, it } from 'vitest'
 
 describe('AppButton', () => {
+  const mockStyle = {
+    button: 'button_hashed_class',
+    primary: 'primary_hashed_class',
+    secondary: 'secondary_hashed_class',
+  }
+
   it('renders the button with the correct label', () => {
     const wrapper = mount(AppButton, {
       props: {
@@ -14,12 +20,6 @@ describe('AppButton', () => {
   })
 
   it('applies the correct variant class', () => {
-    const mockStyle = {
-      button: 'button_hashed_class',
-      primary: 'primary_hashed_class',
-      secondary: 'secondary_hashed_class',
-    }
-
     const wrapper = mount(AppButton, {
       props: {
         variant: 'secondary',
@@ -45,12 +45,6 @@ describe('AppButton', () => {
   })
 
   it('renders default variant if no variant is provided', () => {
-    const mockStyle = {
-      button: 'button_hashed_class',
-      primary: 'primary_hashed_class',
-      secondary: 'secondary_hashed_class',
-    }
-
     const wrapper = mount(AppButton, {
       global: {
         mocks: {
@@ -73,5 +67,20 @@ describe('AppButton', () => {
     })
 
     expect(wrapper.html()).toContain('<span class="icon">Icon</span>')
+  })
+
+  it('emits a click event when clicked', async () => {
+    const wrapper = mount(AppButton, {
+      global: {
+        mocks: {
+          $style: mockStyle,
+        },
+      },
+    })
+
+    await wrapper.trigger('click')
+
+    expect(wrapper.emitted('inner-click')).toBeTruthy()
+    expect(wrapper.emitted('inner-click')!.length).toBe(1)
   })
 })

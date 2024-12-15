@@ -1,5 +1,5 @@
 <template>
-  <button :class="[$style.button, $style[variantClass]]" :type="type">
+  <button :class="[$style.button, $style[variantClass]]" :type="type" @click="$emit('inner-click')">
     {{ label }}
     <slot name="icon"></slot>
     <slot name="secondary"></slot>
