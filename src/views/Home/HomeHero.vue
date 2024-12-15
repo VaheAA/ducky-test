@@ -39,6 +39,7 @@ import AppButton from '@/components/app/AppButton.vue'
   padding: 0.75rem;
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 .hero .col:nth-of-type(1) {
